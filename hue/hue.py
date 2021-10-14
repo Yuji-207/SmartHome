@@ -12,16 +12,19 @@ class Hue():
         self.address = df['address']  # IP address of the hue bridge
         self.username = df['username']  # username
         self.id = id  # The ID of a light
-        self.url = f'http://{self.address}/api/{self.username}/lights'
+        self.url = f'https://{self.address}/api/{self.username}/'
 
-    def get(self, query):  # fetch all information about the addressed resource
-        url = f'https://{self.address}/api/{self.username}/lights/{self.id}'
-        r = requests.get(url=url).json()
+    def get(self, lights=None, groups=None, config=None, schedules=None, scenes=None, sensors=None, rules=None):  # fetch all information about the addressed resource
+        url = self.url + 'lights/{self.id}'
+        query = None
+        r = requests.get(url=url, json=query)
+        r = r.json()
         return r
 
     def put(self, query):  # modify an addressed resource
-        url = f'https://{self.address}/api/{self.username}/lights/{self.id}/state'  # putは?でできる？
-        r = requests.put(url=f'{self.url}/{self.light}/state', json=query).json()
+        url = self.url + 'lights/{self.id}/state'
+        r = requests.put(url=url, json=query)
+        r = r.json()
         return r
 
     def post(self, query):  # create a new resource inside the addressed resource
