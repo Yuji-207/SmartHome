@@ -25,7 +25,3 @@ class Hue():
 
     def delete(self, query):  # deleted the addressed resource  # delete?
         pass
-
-
-class Room():  # 必要ない？ a group of lights?
-    pass
