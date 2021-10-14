@@ -1,28 +1,20 @@
 import json
 import requests
 
-address = None  # IP address of the Hue Bridge  # GitHubに公開しないよう隠す
+address = None  # IP address of the hue bridge  # GitHubに公開しないよう隠す
 username = None  # username
-light = {  # IDs of the lights  # . でアクセスしたい -> タプル？
+light = {  # IDs of lights
     'myroom1': None,
     'myroom2': None,
-    'genkan': None  # 玄関
+    'entrance': None
 }
-
-
 
 
 class Hue():
 
-    def __init__(self, address, username=None, id=None):
+    def __init__(self, address, username, id=None):
         self.address = address
-        if username is None:
-            print('Push the button of your hue bridge!')
-            url = f'https://{self.address}/api/newdeveloper'
-            r = requests.post(url=url)
-            self.username = r.json()[0]['success']['username']  # あってる？
-        else:
-            self.username = username
+        self.username = username
         self.id = id
         self.url = f'http://{self.address}/api/{self.username}/lights'
 
