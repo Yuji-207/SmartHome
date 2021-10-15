@@ -37,5 +37,5 @@ class Controlling():  # 色の変換 -> colour ライブラリ
     def sat(self):  # Set saturation
         pass
 
-    def ct(self):  # Set color temperatures
+    def ct(self):  # Set Mired color temperatures
         pass

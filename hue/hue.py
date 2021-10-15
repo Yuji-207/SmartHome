@@ -20,7 +20,7 @@ class Hue():
         r = r.json()
         return r
 
-    def put(self):  # modify an addressed resource
+    def put(self):  # modify an addressed resource  # 1 put/min
         r = requests.put(url=self.url, json=self.query)
         r = r.json()
         return r
