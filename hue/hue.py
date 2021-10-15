@@ -13,21 +13,22 @@ class Hue():
         self.username = df['username']  # username
         self.id = id  # The ID of a light
         self.url = f'https://{self.address}/api/{self.username}'
+        self.query = None
 
-    def get(self, query):  # fetch all information about the addressed resource
+    def get(self):  # fetch all information about the addressed resource
         url = self.url + 'lights/{self.id}'
-        r = requests.get(url=url, json=query)
+        r = requests.get(url=url, json=self.query)
         r = r.json()
         return r
 
-    def put(self, query):  # modify an addressed resource
+    def put(self):  # modify an addressed resource
         url = self.url + '/lights/{self.id}'
-        r = requests.put(url=url, json=query)
+        r = requests.put(url=url, json=self.query)
         r = r.json()
         return r
 
-    def post(self, query):  # create a new resource inside the addressed resource
+    def post(self):  # create a new resource inside the addressed resource
         pass
 
-    def delete(self, query):  # deleted the addressed resource  # delete?
+    def delete(self):  # deleted the addressed resource  # delete?
         pass

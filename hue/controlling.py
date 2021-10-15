@@ -1,6 +1,3 @@
-import requests
-
-
 class Controlling():  # Add /state to url
 
     def __init__(self):
@@ -11,6 +8,4 @@ class Controlling():  # Add /state to url
     
     def on(self):  # light on
         self.query['on'] =  True
-        r = requests.put(url=self.url, json=query)
-        r = r.json()
-        return r
+        return self
