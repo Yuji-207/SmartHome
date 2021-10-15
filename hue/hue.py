@@ -12,7 +12,7 @@ class Hue():
         self.address = df['address']  # IP address of the hue bridge
         self.username = df['username']  # username
         self.id = id  # The ID of a light
-        self.url = f'https://{self.address}/api/{self.username}/'
+        self.url = f'https://{self.address}/api/{self.username}'
 
     def get(self, query):  # fetch all information about the addressed resource
         url = self.url + 'lights/{self.id}'
@@ -21,7 +21,7 @@ class Hue():
         return r
 
     def put(self, query):  # modify an addressed resource
-        url = self.url + 'lights/{self.id}/state'
+        url = self.url + '/lights/{self.id}'
         r = requests.put(url=url, json=query)
         r = r.json()
         return r
