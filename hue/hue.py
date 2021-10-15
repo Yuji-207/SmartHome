@@ -14,9 +14,8 @@ class Hue():
         self.id = id  # The ID of a light
         self.url = f'https://{self.address}/api/{self.username}/'
 
-    def get(self, lights=None, groups=None, config=None, schedules=None, scenes=None, sensors=None, rules=None):  # fetch all information about the addressed resource
+    def get(self, query):  # fetch all information about the addressed resource
         url = self.url + 'lights/{self.id}'
-        query = None
         r = requests.get(url=url, json=query)
         r = r.json()
         return r
