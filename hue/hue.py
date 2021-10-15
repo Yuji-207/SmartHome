@@ -16,14 +16,12 @@ class Hue():
         self.query = None
 
     def get(self):  # fetch all information about the addressed resource
-        url = self.url + 'lights/{self.id}'
-        r = requests.get(url=url, json=self.query)
+        r = requests.get(url=self.url, json=self.query)
         r = r.json()
         return r
 
     def put(self):  # modify an addressed resource
-        url = self.url + '/lights/{self.id}'
-        r = requests.put(url=url, json=self.query)
+        r = requests.put(url=self.url, json=self.query)
         r = r.json()
         return r
 
