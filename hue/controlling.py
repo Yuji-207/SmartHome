@@ -1,4 +1,4 @@
-class Controlling():
+class Controlling():  # 色の変換 -> colour ライブラリ
 
     def __init__(self):
         self.address = None
@@ -14,7 +14,7 @@ class Controlling():
         self.query['on'] = False
         return self
 
-    def bri(self, bri=None, per=None):  # Change brightness
+    def bri(self, bri=None, per=None):  # Set brightness
         """
         Note minimum brightness is not off, and the light will actually 
         return 1 when set to 0 and return 254 when set to 255.
@@ -28,4 +28,14 @@ class Controlling():
         else:
             print('Both args is None!')
 
+    def hue(self):  # Set hue
+        pass
 
+    def xy(self):  # Set xy coordinates of CIE color space
+        pass
+
+    def sat(self):  # Set saturation
+        pass
+
+    def ct(self):  # Set color temperatures
+        pass
