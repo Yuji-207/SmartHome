@@ -8,7 +8,7 @@ class Setting():
     def groups(self):
         pass
 
-    def config(self):
+    def config(self, name=None):
         pass
 
     def schedules(self):
