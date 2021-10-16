@@ -9,7 +9,7 @@ class Lights():
 
     def __init__(self, address, username, id=None):
         self.id = id
-        self.url = f'https://{address}/api/{username}/lights'
+        self.url = f'http://{address}/api/{username}/lights'
         self.query = {}
 
     def get(self):

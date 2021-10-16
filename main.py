@@ -1,5 +1,5 @@
 import json
-from hue import Lights
+from hue import Lights, Config
 
 ids = {  # IDs of lights
     'entrance': None,
@@ -7,11 +7,12 @@ ids = {  # IDs of lights
     'myroom2': None,
 }
 
+
 path = 'keys.json'
 with open(path) as f:
     df = json.load(f)
 
 address = df['address']
-username = df['username']
-lights = Lights(address, username)
-print(lights)
+config = Config(address)
+r = config.create('developer')
+print(r)
