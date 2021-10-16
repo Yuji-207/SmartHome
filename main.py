@@ -1,4 +1,5 @@
 import json
+import pprint
 from hue import Lights, Config
 
 
@@ -7,6 +8,8 @@ with open(path) as f:
     df = json.load(f)
 
 address = df['address']
-config = Config(address)
-r = config.create('developer')
-print(r)
+username = df['username']
+
+lights = Lights(address, username, id=[1])
+r = lights.set(on=False)
+pprint.pprint(r)
