@@ -1,4 +1,4 @@
-class Controlling():  # 色の変換 -> colour ライブラリ
+class Lights():  # 色の変換 -> colour ライブラリ
 
     def __init__(self):
         self.address = None
@@ -6,6 +6,12 @@ class Controlling():  # 色の変換 -> colour ライブラリ
         self.id = None
         self.url = f'https://{self.address}/api/{self.username}/lights/{self.id}/state'
     
+    def get_all_lights(self):
+        pass
+
+    def get_new_lights(self):
+        pass
+
     def on(self):  # Turn on
         self.query['on'] =  True
         return self
@@ -14,7 +20,7 @@ class Controlling():  # 色の変換 -> colour ライブラリ
         self.query['on'] = False
         return self
 
-    def bri(self, bri=None, per=None):  # Set brightness
+    def bri(self, value=None, per=None):  # Set brightness
         """
         Note minimum brightness is not off, and the light will actually 
         return 1 when set to 0 and return 254 when set to 255.
@@ -28,13 +34,13 @@ class Controlling():  # 色の変換 -> colour ライブラリ
         else:
             print('Both args is None!')
 
-    def hue(self):  # Set hue
-        pass
-
-    def xy(self):  # Set xy coordinates of CIE color space
+    def hue(self, ):  # Set hue
         pass
 
     def sat(self):  # Set saturation
+        pass
+
+    def xy(self):  # Set xy coordinates of CIE color space
         pass
 
     def ct(self):  # Set Mired color temperatures
