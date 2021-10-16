@@ -9,9 +9,10 @@ class Config():
 
     def create(self, device, key=False):
         query = {}
-        query['deviceype'] = device
-        query['key'] = key
-        r = requests.post(url=self.url)
+        query['devicetype'] = device
+        if key:
+            query['generateclientkey'] = True
+        r = requests.post(url=self.url, json=query)
         r = r.json()[0]
         if r.get('success') is not None:
             return  r['success']['username']
