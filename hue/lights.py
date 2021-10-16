@@ -93,12 +93,12 @@ class Lights():
                 self.query['transitiontime'] = transitiontime
                 state = True
             if state is None:
-                url = self.url + f'{self.id}'
-                r = requests.pur(url=url)  # Set light attributes (rename)
+                url = self.url + f'/{self.id}'
+                r = requests.put(url=url)  # Set light attributes (rename)
                 r = r.json()
                 return r
             else:
-                url = self.url + f'{self.id}/state'
+                url = self.url + f'/{self.id}/state'
                 r = requests.put(url=url, json=self.query)  # Set light state
                 r = r.json()
                 return r
