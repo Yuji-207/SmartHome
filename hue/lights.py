@@ -7,10 +7,10 @@ class Lights():
     色の変換 -> colour ライブラリ
     """
 
-    def __init__(self):
+    def __init__(self, address, username, id=None):
         address = None
         username = None
-        self.id = None
+        self.id = id
         self.url = f'https://{address}/api/{username}/lights'
 
     def get(self):
