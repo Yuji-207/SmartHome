@@ -8,10 +8,9 @@ class Lights():
     """
 
     def __init__(self, address, username, id=None):
-        address = None
-        username = None
         self.id = id
         self.url = f'https://{address}/api/{username}/lights'
+        self.query = {}
 
     def get(self):
         """
