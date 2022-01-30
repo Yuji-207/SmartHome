@@ -1,7 +1,7 @@
 import requests
 
 
-class Lights():
+class Light():
     """
     Light API.
     色の変換 -> colour ライブラリ
@@ -81,6 +81,7 @@ class Lights():
                 self.query['xy'] = xy
                 state = True
             if ct is not None:
+                ct = (6500 - ct) / (6500 - 2000) * (500 - 153) + 153
                 self.query['ct'] = ct
                 state = True
             if alert is not None:
